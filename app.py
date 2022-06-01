@@ -7,7 +7,7 @@ app = Flask(__name__)
 proxy = "http://213.137.240.243:81"
 api = TikTokApi(proxy=proxy)
 
-@app.route('/scrap-profile', methods = ['POST'])
+@app.route('/scrape-profile', methods = ['POST'])
 def scrap_profile():
     input_json = request.get_json(force=True)
     username = input_json['username']
@@ -16,7 +16,7 @@ def scrap_profile():
     return response
 
 
-@app.route('/scrap-videos', methods = ['POST'])
+@app.route('/scrape-videos', methods = ['POST'])
 def scrap_videos():
     input_json = request.get_json(force=True)
     username = input_json['username']
