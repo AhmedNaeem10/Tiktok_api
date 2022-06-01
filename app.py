@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
 from TikTokApi import TikTokApi
-import asyncio
+import os
+from dotenv import load_dotenv
 from videos_api import get_videos
+
+load_dotenv()
+
 app = Flask(__name__)
 
-proxy = "http://213.137.240.243:81"
+proxy = os.getenv("proxy")
 api = TikTokApi(proxy=proxy)
 
 @app.route('/scrape-profile', methods = ['POST'])
